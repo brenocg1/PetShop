@@ -9,7 +9,7 @@ import { Pet } from '../Models/pet';
 export class PetService {
 
   readonly APIUrl:string = "";
-  readonly apiMock:string = "api.mocki.io/v1/3a271aeb";
+  readonly apiMock:string = "https://api.mocki.io/v1/3f0c57f3";
 
   constructor(private http:HttpClient){ }
 
@@ -18,7 +18,7 @@ export class PetService {
   //Delete Pet
   //Consulta de Pet
 
-  getPets():Observable<Pet>{
-    return this.http.get<Pet>(this.apiMock);
+  getPets():Observable<Pet[]>{
+    return this.http.get<Pet[]>(this.apiMock);
   }
 }

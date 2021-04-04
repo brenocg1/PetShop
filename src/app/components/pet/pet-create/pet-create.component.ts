@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RegisterPetRequest } from 'src/api.requests';
+import { Pet } from 'src/app/Models/pet';
+import { PetService } from 'src/app/services/pet.service';
 
 @Component({
   selector: 'app-pet-create',
@@ -8,9 +10,10 @@ import { RegisterPetRequest } from 'src/api.requests';
 })
 export class PetCreateComponent implements OnInit {
 
-  constructor() { }
+  constructor(private petService:PetService) { }
 
   registerPetRequest!:RegisterPetRequest;
+  animals!:Pet[];
   
   ngOnInit(): void {
     this.registerPetRequest = {
@@ -21,9 +24,27 @@ export class PetCreateComponent implements OnInit {
       ownerPhoneNumber: "",
       healthStatus: "",
     }
+
+    this.loadAnimals();
+  }
+
+  loadAnimals() {
+    this.petService.getPets().subscribe(result => {
+      this.animals = result;
+    });
+    console.log(this.animals);
+  }
+
+  deleteAnimal(id: number){
+    console.log(id);
+    
   }
 
   saveAnimal() {
+
+  }
+
+  resetFields(){
 
   }
 }

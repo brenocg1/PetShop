@@ -1,0 +1,61 @@
+<div class="clr-col-12">
+	<div class="content-area">
+		<div class="card">
+            <div class="card-header">Pesquisa de Animais</div>
+            <div class="card-block">
+                <div class="card-text">
+                    <div class="clr-row">
+                        <div class="clr-col-lg-12 clr-col-md-12 clr-col-12">
+                            <form clrForm clrLayout="horizontal">
+                                <clr-input-container>
+                                    <label>Nome do Animal</label>
+                                    <input clrInput  name="name" [(ngModel)]="searchPetRequest.name" type="text" placeholder="Scooby Doo"/>
+                                    <clr-control-helper>Digite o nome do Pet</clr-control-helper>
+                                </clr-input-container>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-primary float-items-right" (click)="searchPet()">Procurar</button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">Animais Achados</div>
+            <div class="card-block">
+                <div class="card-text">
+                    <div class="clr-row">
+                        <div class="clr-col-lg-12 clr-col-md-12 clr-col-12">
+                            <clr-datagrid>
+                                <clr-dg-column>Nome</clr-dg-column>
+								<clr-dg-column>Motivo da Internação</clr-dg-column>
+								<clr-dg-column>Nome do Dono</clr-dg-column>
+								<clr-dg-column>Estado de Saúde</clr-dg-column>
+								<clr-dg-column>Endereço do Dono</clr-dg-column>
+								<clr-dg-column>Telefone do Dono</clr-dg-column>
+								<clr-dg-column>Editar Informações</clr-dg-column>
+                                <clr-dg-column>Excluir Animal</clr-dg-column>
+
+                                <clr-dg-row *ngFor="let animal of animals" [clrDgItem]="animals">
+                                    <clr-dg-cell>{{animal.name}}</clr-dg-cell>
+                                    <clr-dg-cell>{{animal.Reason}}</clr-dg-cell>
+                                    <clr-dg-cell>{{animal.ownerName}}</clr-dg-cell>
+                                    <clr-dg-cell>{{animal.healthStatus}}</clr-dg-cell>
+                                    <clr-dg-cell>{{animal.ownerAddress}}</clr-dg-cell>
+                                    <clr-dg-cell>{{animal.ownerPhoneNumber}}</clr-dg-cell>
+                                    <clr-dg-cell>
+                                        <button class="btn btn-primary float-items-right" (click)="deleteAnimal(animal.id)">Editar</button>
+                                    </clr-dg-cell>
+                                    <clr-dg-cell>
+                                        <button class="btn btn-primary float-items-right" (click)="deleteAnimal(animal.id)">Excluir</button>
+                                    </clr-dg-cell>
+                                </clr-dg-row>
+                            </clr-datagrid>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
+</div>

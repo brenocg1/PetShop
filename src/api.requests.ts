@@ -6,3 +6,7 @@ export interface RegisterPetRequest {
 	ownerPhoneNumber:string;
 	healthStatus:string;
 }
+
+export interface SearchPetRequest{
+	name:string;
+}

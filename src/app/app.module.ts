@@ -9,12 +9,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PetService } from './services/pet.service'
 import { HttpClientModule } from '@angular/common/http' 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { PetCreateComponent } from './components/pet/pet-create/pet-create.component'
+import { PetCreateComponent } from './components/pet/pet-create/pet-create.component';
+import { PetSearchComponent } from './components/pet/pet-search/pet-search.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     PetCreateComponent,
+    PetSearchComponent,
   ],
   imports: [
     BrowserModule,
