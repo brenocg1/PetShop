@@ -32,19 +32,23 @@ export class PetCreateComponent implements OnInit {
     this.petService.getPets().subscribe(result => {
       this.animals = result;
     });
-    console.log(this.animals);
   }
 
   deleteAnimal(id: number){
     console.log(id);
-    
   }
 
   saveAnimal() {
-
   }
 
   resetFields(){
-
+    this.registerPetRequest = {
+      name: "",
+      reason: "",
+      ownerName: "",
+      ownerAddress: "",
+      ownerPhoneNumber: "",
+      healthStatus: "",
+    }
   }
 }

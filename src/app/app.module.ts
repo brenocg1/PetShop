@@ -10,13 +10,14 @@ import { PetService } from './services/pet.service'
 import { HttpClientModule } from '@angular/common/http' 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PetCreateComponent } from './components/pet/pet-create/pet-create.component';
-import { PetSearchComponent } from './components/pet/pet-search/pet-search.component'
-
+import { PetSearchComponent } from './components/pet/pet-search/pet-search.component';
+import { PetUpdateComponent } from './components/pet/pet-update/pet-update.component'
 @NgModule({
   declarations: [
     AppComponent,
     PetCreateComponent,
     PetSearchComponent,
+    PetUpdateComponent
   ],
   imports: [
     BrowserModule,

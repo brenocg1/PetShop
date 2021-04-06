@@ -50,8 +50,8 @@
                 </div>
             </div>
             <div class="card-footer">
-                <button class="btn btn-success float-items-right" (click)="saveAnimal()">Registrar</button>
-				<button class="btn btn-primary float-items-right" (click)="resetFields()">Limpar Campos</button>
+                <button class="btn btn-success float-items-right" (click)="updateAnimal()">Update</button>
+                <button class="btn btn-warning float-items-right" (click)="cancel()">Cancel</button>
             </div>
         </div>
 		<div class="card">
@@ -67,8 +67,6 @@
 								<clr-dg-column>Estado de Saúde</clr-dg-column>
 								<clr-dg-column>Endereço do Dono</clr-dg-column>
 								<clr-dg-column>Telefone do Dono</clr-dg-column>
-                                <clr-dg-column>Excluir Animal</clr-dg-column>
-                                <clr-dg-column>Foto</clr-dg-column>
 
                                 <clr-dg-row *ngFor="let animal of animals" [clrDgItem]="animals">
                                     <clr-dg-cell>{{animal.name}}</clr-dg-cell>
@@ -77,14 +75,6 @@
                                     <clr-dg-cell>{{animal.healthStatus}}</clr-dg-cell>
                                     <clr-dg-cell>{{animal.ownerAddress}}</clr-dg-cell>
                                     <clr-dg-cell>{{animal.ownerPhoneNumber}}</clr-dg-cell>
-                                    <clr-dg-cell>
-                                        <button class="btn btn-primary float-items-right" (click)="deleteAnimal(animal.id)">Excluir</button>
-                                    </clr-dg-cell>
-
-                                    <clr-dg-cell>
-                                        <img src="https://i.pinimg.com/originals/d4/2d/d1/d42dd1438010d3f911019301cd640b18.jpg" width="100" height="100" alt="">
-                                    </clr-dg-cell>
-
                                 </clr-dg-row>
                             </clr-datagrid>
                         </div>

@@ -44,9 +44,11 @@
                                     <clr-dg-cell>{{animal.healthStatus}}</clr-dg-cell>
                                     <clr-dg-cell>{{animal.ownerAddress}}</clr-dg-cell>
                                     <clr-dg-cell>{{animal.ownerPhoneNumber}}</clr-dg-cell>
+                                    
                                     <clr-dg-cell>
-                                        <button class="btn btn-primary float-items-right" (click)="deleteAnimal(animal.id)">Editar</button>
+                                        <button class="btn btn-primary float-items-right" (click)="editarAnimal(animal.id)">Editar</button>
                                     </clr-dg-cell>
+
                                     <clr-dg-cell>
                                         <button class="btn btn-primary float-items-right" (click)="deleteAnimal(animal.id)">Excluir</button>
                                     </clr-dg-cell>

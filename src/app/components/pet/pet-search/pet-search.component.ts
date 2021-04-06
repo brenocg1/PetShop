@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SearchPetRequest } from 'src/api.requests';
 import { Pet } from 'src/app/Models/pet';
 import { PetService } from 'src/app/services/pet.service';
@@ -10,7 +11,9 @@ import { PetService } from 'src/app/services/pet.service';
 })
 export class PetSearchComponent implements OnInit {
 
-  constructor(private petService:PetService) { }
+  constructor(
+    private petService:PetService,
+    private router:Router) { }
 
   animals!:Pet[];
 
@@ -25,7 +28,11 @@ export class PetSearchComponent implements OnInit {
   }
 
   searchPet(){
+    
+  }
 
+  editarAnimal(id: number){
+    this.router.navigate([`updatePet/${id}`]);
   }
 
   deleteAnimal(id: number){
@@ -36,7 +43,6 @@ export class PetSearchComponent implements OnInit {
     this.petService.getPets().subscribe(result => {
       this.animals = result;
     });
-    console.log(this.animals);
   }
 
 }
