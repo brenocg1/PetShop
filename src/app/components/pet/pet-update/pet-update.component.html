@@ -15,30 +15,13 @@
 
 								<clr-textarea-container>
                                     <label>Motivo da Internação</label>
-                                    <textarea clrTextarea [(ngModel)]="registerPetRequest.reason" required type="text" name="reason"> </textarea>
+                                    <textarea clrTextarea [(ngModel)]="registerPetRequest.reasonForHospitalization" required type="text" name="reason"> </textarea>
 									<clr-control-helper>Explique por que seu Pet precisa de tratamento</clr-control-helper>
                                 </clr-textarea-container>
-
-								<clr-input-container>
-                                    <label>Nome do Dono do Pet</label>
-                                    <input clrInput [(ngModel)]="registerPetRequest.ownerName" required type="text" name="ownerName" />
-									<clr-control-helper>Escreva o nome do Dono</clr-control-helper>
-                                </clr-input-container>
-
-								<clr-textarea-container>
-                                    <label>Endereço do Dono</label>
-                                    <textarea clrTextarea [(ngModel)]="registerPetRequest.ownerAddress" required type="text" name="ownerAddress"> </textarea>
-                                </clr-textarea-container>
-
-								<clr-input-container>
-                                    <label>Telefone para contato do Dono</label>
-                                    <input clrInput [(ngModel)]="registerPetRequest.ownerPhoneNumber" required type="text" name="ownerPhoneNumber" />
-									<clr-control-helper>Forneça um telefone para contato</clr-control-helper>
-                                </clr-input-container>
 								
 								<clr-select-container>
 									<label>Estado de Saúde Atual</label>
-									<select clrSelect [(ngModel)]="registerPetRequest.healthStatus" name="healthStatus">
+									<select clrSelect [(ngModel)]="registerPetRequest.healthCondition" name="healthStatus">
 										<option value="Tratamento">Em Tratamento</option>
 										<option value="Recuperando">Se Recuperando</option>
 										<option value="Recuperado">Recuperado</option>
@@ -65,16 +48,17 @@
 								<clr-dg-column>Motivo da Internação</clr-dg-column>
 								<clr-dg-column>Nome do Dono</clr-dg-column>
 								<clr-dg-column>Estado de Saúde</clr-dg-column>
-								<clr-dg-column>Endereço do Dono</clr-dg-column>
-								<clr-dg-column>Telefone do Dono</clr-dg-column>
+                                <clr-dg-column>Excluir Animal</clr-dg-column>
 
                                 <clr-dg-row *ngFor="let animal of animals" [clrDgItem]="animals">
-                                    <clr-dg-cell>{{animal.name}}</clr-dg-cell>
-                                    <clr-dg-cell>{{animal.Reason}}</clr-dg-cell>
-                                    <clr-dg-cell>{{animal.ownerName}}</clr-dg-cell>
-                                    <clr-dg-cell>{{animal.healthStatus}}</clr-dg-cell>
-                                    <clr-dg-cell>{{animal.ownerAddress}}</clr-dg-cell>
-                                    <clr-dg-cell>{{animal.ownerPhoneNumber}}</clr-dg-cell>
+                                    <clr-dg-cell>{{animal.Name}}</clr-dg-cell>
+                                    <clr-dg-cell>{{animal.ReasonForHospitalization}}</clr-dg-cell>
+                                    <clr-dg-cell>{{animal.HealthCondition}}</clr-dg-cell>
+                                    
+                                    <clr-dg-cell>
+                                        <button class="btn btn-danger float-items-right" (click)="deleteAnimal(animal.Id)">Excluir</button>
+                                    </clr-dg-cell>
+
                                 </clr-dg-row>
                             </clr-datagrid>
                         </div>

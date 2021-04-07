@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RegisterPetRequest } from 'src/api.requests';
 import { Pet } from 'src/app/Models/pet';
+import { PetOwner } from 'src/app/Models/petOwner';
+import { PetOwnerService } from 'src/app/services/pet-owner.service';
 import { PetService } from 'src/app/services/pet.service';
 
 @Component({
@@ -10,22 +12,30 @@ import { PetService } from 'src/app/services/pet.service';
 })
 export class PetCreateComponent implements OnInit {
 
-  constructor(private petService:PetService) { }
+  constructor(private petService:PetService,
+    private petOwnerService:PetOwnerService) { }
 
   registerPetRequest!:RegisterPetRequest;
   animals!:Pet[];
+  petOwners!:PetOwner[];
   
   ngOnInit(): void {
+    
+    this.loadAnimals();
+    this.loadOwners();
+
     this.registerPetRequest = {
       name: "",
-      reason: "",
-      ownerName: "",
-      ownerAddress: "",
-      ownerPhoneNumber: "",
-      healthStatus: "",
+      healthCondition: "",
+      reasonForHospitalization: "",
+      petOwnerId: -1,
     }
+  }
 
-    this.loadAnimals();
+  loadOwners() {
+    this.petOwnerService.getPetOwners().subscribe((result) => {
+      this.petOwners = result;
+    });
   }
 
   loadAnimals() {
@@ -36,19 +46,21 @@ export class PetCreateComponent implements OnInit {
 
   deleteAnimal(id: number){
     console.log(id);
+    this.petService.deletePet(id).subscribe(() => {
+      this.loadAnimals();
+    });
   }
 
   saveAnimal() {
+    //validate fields
   }
 
   resetFields(){
     this.registerPetRequest = {
       name: "",
-      reason: "",
-      ownerName: "",
-      ownerAddress: "",
-      ownerPhoneNumber: "",
-      healthStatus: "",
+      healthCondition: "",
+      reasonForHospitalization: "",
+      petOwnerId: -1,
     }
   }
 }

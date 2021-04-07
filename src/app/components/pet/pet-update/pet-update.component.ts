@@ -24,11 +24,9 @@ export class PetUpdateComponent implements OnInit {
   ngOnInit(): void {
     this.registerPetRequest = {
       name: "",
-      reason: "",
-      ownerName: "",
-      ownerAddress: "",
-      ownerPhoneNumber: "",
-      healthStatus: "",
+      healthCondition: "",
+      reasonForHospitalization: "",
+      petOwnerId: -1,
     }
 
     this.loadAnimals();
@@ -38,6 +36,10 @@ export class PetUpdateComponent implements OnInit {
 
   updateAnimal(){
 
+  }
+
+  deleteAnimal(id: number){
+    console.log(id);
   }
 
   cancel(){

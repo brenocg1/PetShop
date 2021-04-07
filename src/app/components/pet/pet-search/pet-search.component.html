@@ -32,26 +32,17 @@
 								<clr-dg-column>Motivo da Internação</clr-dg-column>
 								<clr-dg-column>Nome do Dono</clr-dg-column>
 								<clr-dg-column>Estado de Saúde</clr-dg-column>
-								<clr-dg-column>Endereço do Dono</clr-dg-column>
-								<clr-dg-column>Telefone do Dono</clr-dg-column>
-								<clr-dg-column>Editar Informações</clr-dg-column>
                                 <clr-dg-column>Excluir Animal</clr-dg-column>
 
                                 <clr-dg-row *ngFor="let animal of animals" [clrDgItem]="animals">
-                                    <clr-dg-cell>{{animal.name}}</clr-dg-cell>
-                                    <clr-dg-cell>{{animal.Reason}}</clr-dg-cell>
-                                    <clr-dg-cell>{{animal.ownerName}}</clr-dg-cell>
-                                    <clr-dg-cell>{{animal.healthStatus}}</clr-dg-cell>
-                                    <clr-dg-cell>{{animal.ownerAddress}}</clr-dg-cell>
-                                    <clr-dg-cell>{{animal.ownerPhoneNumber}}</clr-dg-cell>
+                                    <clr-dg-cell>{{animal.Name}}</clr-dg-cell>
+                                    <clr-dg-cell>{{animal.ReasonForHospitalization}}</clr-dg-cell>
+                                    <clr-dg-cell>{{animal.HealthCondition}}</clr-dg-cell>
                                     
                                     <clr-dg-cell>
-                                        <button class="btn btn-primary float-items-right" (click)="editarAnimal(animal.id)">Editar</button>
+                                        <button class="btn btn-danger float-items-right" (click)="deleteAnimal(animal.Id)">Excluir</button>
                                     </clr-dg-cell>
 
-                                    <clr-dg-cell>
-                                        <button class="btn btn-primary float-items-right" (click)="deleteAnimal(animal.id)">Excluir</button>
-                                    </clr-dg-cell>
                                 </clr-dg-row>
                             </clr-datagrid>
                         </div>

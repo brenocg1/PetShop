@@ -2,14 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs'
 import { Pet } from '../Models/pet';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PetService {
 
-  readonly APIUrl:string = "";
-  readonly apiMock:string = "https://api.mocki.io/v1/3f0c57f3";
+  
 
   constructor(private http:HttpClient){ }
 
@@ -19,6 +19,12 @@ export class PetService {
   //Consulta de Pet
 
   getPets():Observable<Pet[]>{
-    return this.http.get<Pet[]>(this.apiMock);
+    return this.http.get<Pet[]>(environment.APIUrl + "api/Pet/GetAllPets");
   }
+
+  deletePet(id: number){
+    const url = `${environment.APIUrl}api/Pet/DeletePetById?id=${id}`
+    return this.http.delete(url);
+  }
+
 }

@@ -1,10 +1,8 @@
 export interface RegisterPetRequest {
+	petOwnerId: number;
 	name:string;
-	reason:string;
-	ownerName:string;
-	ownerAddress:string;
-	ownerPhoneNumber:string;
-	healthStatus:string;
+	reasonForHospitalization:string;
+	healthCondition:string;
 }
 
 export interface SearchPetRequest{

@@ -1,9 +1,9 @@
 export interface Pet{
-	id:number;
-	name: string;
-	Reason:string;
-	ownerName: string;
-	healthStatus: string;
-	ownerAddress: string;
-	ownerPhoneNumber: string;
+	Id:number;
+	IdPetOwner: number;
+	Name: string;
+	ReasonForHospitalization:string;
+	HealthCondition: string;
+	IdPetOwnerNavigation: number;
+	Housings: number[];
 }
