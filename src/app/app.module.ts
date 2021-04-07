@@ -12,14 +12,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PetCreateComponent } from './components/pet/pet-create/pet-create.component';
 import { PetSearchComponent } from './components/pet/pet-search/pet-search.component';
 import { PetUpdateComponent } from './components/pet/pet-update/pet-update.component';
-import { HousingsScreenComponent } from './components/housing/housings-screen/housings-screen.component'
+import { HousingsScreenComponent } from './components/housing/housings-screen/housings-screen.component';
+import { PetOwnerCreateComponent } from './components/petOwner/pet-owner-create/pet-owner-create.component'
 @NgModule({
   declarations: [
     AppComponent,
     PetCreateComponent,
     PetSearchComponent,
     PetUpdateComponent,
-    HousingsScreenComponent
+    HousingsScreenComponent,
+    PetOwnerCreateComponent
   ],
   imports: [
     BrowserModule,

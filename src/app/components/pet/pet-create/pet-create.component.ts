@@ -56,7 +56,12 @@ export class PetCreateComponent implements OnInit {
       alert("Preencha todos os campos");
     }else{
       this.petService.createPet(this.registerPetRequest).subscribe((result) => {
-        alert(`Animal alocado no alojamento numero ${result}`);
+        this.loadAnimals();
+        if(result > 1){
+          alert(`Animal alocado no alojamento numero ${result}`);
+        }else{
+          alert("Não há alojamentos livres");
+        }
       });
     }
   }

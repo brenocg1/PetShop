@@ -12,6 +12,12 @@ export interface UpdatePetRequest {
 	healthCondition:string;
 }
 
-export interface SearchPetRequest{
+export interface CreatePetOwnerRequest {
+	name: string;
+	address: string;
+	phoneNumber: string;
+}
+
+export interface SearchPetRequest {
 	name:string;
 }
