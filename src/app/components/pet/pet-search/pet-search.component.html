@@ -30,9 +30,9 @@
                             <clr-datagrid>
                                 <clr-dg-column>Nome</clr-dg-column>
 								<clr-dg-column>Motivo da Internação</clr-dg-column>
-								<clr-dg-column>Nome do Dono</clr-dg-column>
 								<clr-dg-column>Estado de Saúde</clr-dg-column>
                                 <clr-dg-column>Excluir Animal</clr-dg-column>
+                                <clr-dg-column>Editar Animal</clr-dg-column>
 
                                 <clr-dg-row *ngFor="let animal of animals" [clrDgItem]="animals">
                                     <clr-dg-cell>{{animal.Name}}</clr-dg-cell>
@@ -41,6 +41,10 @@
                                     
                                     <clr-dg-cell>
                                         <button class="btn btn-danger float-items-right" (click)="deleteAnimal(animal.Id)">Excluir</button>
+                                    </clr-dg-cell>
+
+                                    <clr-dg-cell>
+                                        <button class="btn btn-info-outline float-items-right" (click)="editarAnimal(animal.Id)">Editar</button>
                                     </clr-dg-cell>
 
                                 </clr-dg-row>

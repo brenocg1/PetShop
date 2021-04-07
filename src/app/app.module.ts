@@ -11,13 +11,15 @@ import { HttpClientModule } from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PetCreateComponent } from './components/pet/pet-create/pet-create.component';
 import { PetSearchComponent } from './components/pet/pet-search/pet-search.component';
-import { PetUpdateComponent } from './components/pet/pet-update/pet-update.component'
+import { PetUpdateComponent } from './components/pet/pet-update/pet-update.component';
+import { HousingsScreenComponent } from './components/housing/housings-screen/housings-screen.component'
 @NgModule({
   declarations: [
     AppComponent,
     PetCreateComponent,
     PetSearchComponent,
-    PetUpdateComponent
+    PetUpdateComponent,
+    HousingsScreenComponent
   ],
   imports: [
     BrowserModule,

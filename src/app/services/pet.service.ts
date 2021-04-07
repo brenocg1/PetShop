@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs'
 import { Pet } from '../Models/pet';
 import { environment } from 'src/environments/environment';
-import { RegisterPetRequest, SearchPetRequest } from 'src/api.requests';
+import { RegisterPetRequest, SearchPetRequest, UpdatePetRequest } from 'src/api.requests';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +23,11 @@ export class PetService {
     return this.http.get<Pet[]>(environment.APIUrl + "api/Pet/GetAllPets");
   }
 
+  getPetById(id: number):Observable<Pet>{
+    const url = `${environment.APIUrl}api/Pet/GetPetById?id=${id}`
+    return this.http.get<Pet>(url);
+  }
+
   deletePet(id: number){
     const url = `${environment.APIUrl}api/Pet/DeletePetById?id=${id}`
     return this.http.delete(url);
@@ -36,5 +41,10 @@ export class PetService {
   searchPet(request: SearchPetRequest): Observable<Pet[]>{
     const url = `${environment.APIUrl}api/Pet/SearchPet?name=${request.name}`
     return this.http.get<Pet[]>(url);
+  }
+
+  updatePet(request: UpdatePetRequest) {
+    const url = `${environment.APIUrl}api/Pet/UpdatePet`
+    return this.http.put(url, request);
   }
 }

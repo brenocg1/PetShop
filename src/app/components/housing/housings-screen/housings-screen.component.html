@@ -1,0 +1,20 @@
+<div class="card">
+	<div class="card-header">Alojamentos</div>
+	<div class="card-block">
+		<div class="card-text">
+			<div class="clr-row">
+				<div class="clr-col-lg-12 clr-col-md-12 clr-col-12">
+					<clr-datagrid>
+						<clr-dg-column>Numero do Alojamento</clr-dg-column>
+						<clr-dg-column>Status</clr-dg-column>
+
+						<clr-dg-row *ngFor="let house of housings" [clrDgItem]="housings">
+							<clr-dg-cell>{{house.Number}}</clr-dg-cell>
+							<clr-dg-cell>{{house.Status}}</clr-dg-cell>
+						</clr-dg-row>
+					</clr-datagrid>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

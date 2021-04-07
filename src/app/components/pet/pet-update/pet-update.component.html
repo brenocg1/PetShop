@@ -22,8 +22,8 @@
 								<clr-select-container>
 									<label>Estado de Saúde Atual</label>
 									<select clrSelect [(ngModel)]="registerPetRequest.healthCondition" name="healthStatus">
-										<option value="Tratamento">Em Tratamento</option>
-										<option value="Recuperando">Se Recuperando</option>
+										<option value="Em Tratamento">Em Tratamento</option>
+										<option value="Se Recuperando">Se Recuperando</option>
 										<option value="Recuperado">Recuperado</option>
 									</select>
 								</clr-select-container>
@@ -46,7 +46,6 @@
                             <clr-datagrid>
                                 <clr-dg-column>Nome</clr-dg-column>
 								<clr-dg-column>Motivo da Internação</clr-dg-column>
-								<clr-dg-column>Nome do Dono</clr-dg-column>
 								<clr-dg-column>Estado de Saúde</clr-dg-column>
                                 <clr-dg-column>Excluir Animal</clr-dg-column>
 
