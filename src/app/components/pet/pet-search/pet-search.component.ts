@@ -20,15 +20,22 @@ export class PetSearchComponent implements OnInit {
   searchPetRequest!:SearchPetRequest;
 
   ngOnInit(): void {
+    this.loadAnimals();
+
     this.searchPetRequest = {
       name: "",
     };
-
-    this.loadAnimals();
   }
 
   searchPet(){
-    
+    if(this.searchPetRequest.name == ""){
+      alert("Preencha o nome que deseja pesquisar");
+      return;
+    }else{
+      this.petService.searchPet(this.searchPetRequest).subscribe((result) => {
+        this.animals = result;
+      });
+    }
   }
 
   editarAnimal(id: number){
@@ -37,6 +44,9 @@ export class PetSearchComponent implements OnInit {
 
   deleteAnimal(id: number){
     console.log(id);
+    this.petService.deletePet(id).subscribe(() => {
+      this.loadAnimals();
+    });
   }
 
   loadAnimals() {
@@ -44,5 +54,4 @@ export class PetSearchComponent implements OnInit {
       this.animals = result;
     });
   }
-
 }

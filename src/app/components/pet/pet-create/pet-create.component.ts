@@ -52,7 +52,23 @@ export class PetCreateComponent implements OnInit {
   }
 
   saveAnimal() {
-    //validate fields
+    if(!this.validateFields()){
+      alert("Preencha todos os campos");
+    }else{
+      this.petService.createPet(this.registerPetRequest).subscribe((result) => {
+        alert(`Animal alocado no alojamento numero ${result}`);
+      });
+    }
+  }
+
+  validateFields(): boolean {
+    if(this.registerPetRequest.name == "" ||
+      this.registerPetRequest.healthCondition == "" ||
+      this.registerPetRequest.petOwnerId == -1 ||
+      this.registerPetRequest.reasonForHospitalization == ""){
+        return false
+    }
+    return true;
   }
 
   resetFields(){

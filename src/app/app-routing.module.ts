@@ -6,6 +6,7 @@ import { PetUpdateComponent } from './components/pet/pet-update/pet-update.compo
 
 const routes: Routes = [
   { path: 'registerPet', component: PetCreateComponent },
+  { path: '', component: PetCreateComponent },
   { path: 'searchPet', component: PetSearchComponent },
   { path: 'updatePet/:id', component: PetUpdateComponent }
 ];
