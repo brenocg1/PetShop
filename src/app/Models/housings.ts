@@ -3,4 +3,6 @@ export interface Housings {
 	Number: number;
 	IdPet: number;
 	Status: string;
+	PetName: string;
+	PetOwnerName: string;
 }

@@ -7,10 +7,14 @@
 					<clr-datagrid>
 						<clr-dg-column>Numero do Alojamento</clr-dg-column>
 						<clr-dg-column>Status</clr-dg-column>
+						<clr-dg-column>Nome do animal</clr-dg-column>
+						<clr-dg-column>Nome do dono</clr-dg-column>
 
 						<clr-dg-row *ngFor="let house of housings" [clrDgItem]="housings">
 							<clr-dg-cell>{{house.Number}}</clr-dg-cell>
 							<clr-dg-cell>{{house.Status}}</clr-dg-cell>
+							<clr-dg-cell>{{house.PetName}}</clr-dg-cell>
+							<clr-dg-cell>{{house.PetOwnerName}}</clr-dg-cell>
 						</clr-dg-row>
 					</clr-datagrid>
 				</div>

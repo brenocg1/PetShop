@@ -27,9 +27,14 @@ export class PetOwnerCreateComponent implements OnInit {
   }
 
   deleteOwner(id: number){
-    this.ownerService.deletePetOwner(id).subscribe(() => {
-      this.loadOwners();
-    });
+    if(confirm("Essa ação irá excluir o dono e todos os animais a ele cadastrados, consequentemente liberando os alojamentos em que eles estão")){
+      this.ownerService.deletePetOwner(id).subscribe(() => {
+        this.loadOwners();
+      });
+    }
+    else{
+      return;
+    }
   }
 
   loadOwners(){
@@ -45,7 +50,7 @@ export class PetOwnerCreateComponent implements OnInit {
       alert("preencha todos os campos");
     }
     else{
-      this.ownerService.createPetOwner(this.request).subscribe(() => { this.loadOwners(); });
+      this.ownerService.createPetOwner(this.request).subscribe(() => { this.loadOwners(); this.resetFields(); });
     }
   }
 
