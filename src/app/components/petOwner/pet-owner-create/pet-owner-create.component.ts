@@ -26,6 +26,12 @@ export class PetOwnerCreateComponent implements OnInit {
     }
   }
 
+  deleteOwner(id: number){
+    this.ownerService.deletePetOwner(id).subscribe(() => {
+      this.loadOwners();
+    });
+  }
+
   loadOwners(){
     this.ownerService.getPetOwners().subscribe((result) => {
       this.owners = result;

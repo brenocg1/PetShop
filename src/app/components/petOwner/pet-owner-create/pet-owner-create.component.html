@@ -43,16 +43,16 @@
                                 <clr-dg-column>Nome</clr-dg-column>
 								<clr-dg-column>Endereço</clr-dg-column>
 								<clr-dg-column>Telefone</clr-dg-column>
-                                <!-- <clr-dg-column>Excluir Animal</clr-dg-column> -->
+                                <clr-dg-column>Excluir Dono</clr-dg-column>
 
                                 <clr-dg-row *ngFor="let owner of owners" [clrDgItem]="owners">
                                     <clr-dg-cell>{{owner.Name}}</clr-dg-cell>
                                     <clr-dg-cell>{{owner.Address}}</clr-dg-cell>
                                     <clr-dg-cell>{{owner.PhoneNumber}}</clr-dg-cell>
                                     
-                                    <!-- <clr-dg-cell>
-                                        <button class="btn btn-danger float-items-right" (click)="deleteAnimal(animal.Id)">Excluir</button>
-                                    </clr-dg-cell> -->
+                                    <clr-dg-cell>
+                                        <button class="btn btn-danger float-items-right" (click)="deleteOwner(owner.Id)">Excluir</button>
+                                    </clr-dg-cell>
 
                                 </clr-dg-row>
                             </clr-datagrid>

@@ -20,4 +20,9 @@ export class PetOwnerService {
     const url = `${environment.APIUrl}api/PetOwner/CreatePetOwner`
     return this.http.post(url, request);
   }
+
+  deletePetOwner(id: number){
+    const url = `${environment.APIUrl}api/PetOwner/DeletePetOwner?id=${id}`
+    return this.http.delete(url);
+  }
 }

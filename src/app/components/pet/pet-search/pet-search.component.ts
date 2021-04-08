@@ -43,7 +43,6 @@ export class PetSearchComponent implements OnInit {
   }
 
   deleteAnimal(id: number){
-    console.log(id);
     this.petService.deletePet(id).subscribe(() => {
       this.loadAnimals();
     });
